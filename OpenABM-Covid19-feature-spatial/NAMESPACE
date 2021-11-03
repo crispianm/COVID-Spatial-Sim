@@ -1,0 +1,63 @@
+importFrom("methods", "as")
+importFrom("methods", "callNextMethod")
+importFrom("methods", "is")
+importFrom("methods", "new")
+importFrom("methods", "setClass")
+importFrom("methods", "slot")
+importFrom("R6", "R6Class")
+importFrom("xptr", "is_null_xptr")
+importFrom("parallel", "makeCluster")
+importFrom("parallel", "stopCluster")
+importFrom("parallel", "clusterApply")
+importFrom("parallel", "detectCores")
+import("data.table")
+importFrom( "plotly", "plot_ly" )
+importFrom( "plotly", "layout" )
+importFrom( "plotly", "animation_opts" )
+importFrom( "plotly", "colorbar" )
+importFrom( "plotly", "%>%" )
+importFrom( "stringr", "str_replace_all")
+
+# R6 Classes
+export("Parameters")
+export("Model")
+export("Network")
+export("Environment")
+export("Agent")
+export("Simulation")
+export("Strain")
+export("COVID19IBM")
+export("VaccineSchedule")
+export("Vaccine")
+export("MetaModel")
+
+# wrapper function for R6 calsses
+export("Parameters.new")
+export("Parameters.get_param")
+export("Parameters.set_param")
+export("Model.new")
+export("Model.one_time_step")
+export("Model.one_time_step_results")
+export("Model.results")
+export("Model.run")
+export("Model.get_param")
+export("Model.update_running_params")
+export("Model.get_transmissions")
+
+# MetaModel
+export( "MetaModel.rectangle")
+export( "MetaModel.England")
+
+# Enums
+export("AgeGroupEnum")
+export("SAFE_UPDATE_PARAMS")
+export("NETWORK_CONSTRUCTIONS")
+export("VACCINE_TYPES")
+export("VACCINE_STATUS")
+
+# constants
+export("plot.value.total_infected")
+export("plot.value.new_infected")
+export("plot.values")
+
+useDynLib(OpenABMCovid19, .registration = TRUE)
