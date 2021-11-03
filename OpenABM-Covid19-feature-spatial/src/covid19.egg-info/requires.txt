@@ -1,0 +1,7 @@
+click
+matplotlib==3.2.2
+numpy
+pandas
+scipy
+tqdm
+dataclasses

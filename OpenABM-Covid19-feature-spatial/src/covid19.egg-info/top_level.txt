@@ -1,0 +1,4 @@
+COVID19
+_covid19
+adapter_covid19
+covid19
