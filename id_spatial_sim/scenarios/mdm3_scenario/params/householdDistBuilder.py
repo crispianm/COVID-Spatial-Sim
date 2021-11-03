@@ -45,5 +45,5 @@ print(d['freq'][i_tmp])
 print(sum(d['hh-size']*d['freq']))
 
 # output to new localised area
-outPath = './data/ons-hh-ages.csv'
+outPath = './data/ons-hh-ages_modified.csv'
 d.to_csv(outPath,index=False)

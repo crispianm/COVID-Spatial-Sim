@@ -1,7 +1,7 @@
 import sys
 
-# Python functio to write a grid params.in in the same fashion as the one provided
-#   Arguments default to oriinal values
+# Python function to write a grid params.in in the same fashion as the one provided
+#   Arguments default to original values
 def WriteGridParams(
     gridPath='./params/build_grid_params.in',
     intSeed=1234,
@@ -11,10 +11,10 @@ def WriteGridParams(
     blNetworkDumpFile=True,
     intBlockSizeInUnitsOfPointers=4096,
     dblAverageWorkplaceSize=150,
-    strHouseholdAgeDistributionFile='../../data/ons-hh-ages.csv',
-    intNoNodes=700000,
+    strHouseholdAgeDistributionFile='./data/ons-hh-ages_modified.csv',
+    intNoNodes=620000,
     dblAverageHousehold=2.4,
-    strHouseholdDensityFile='data/popDensityMaps/leicestershire_2020_fcb.asc'
+    strHouseholdDensityFile='./data/bristol.asc'
     ):
     with open(gridPath, "w") as text_file:
         text_file.write("[General setup]\n")
@@ -46,7 +46,7 @@ def WriteGridParams(
 [Household setup]			
 	intNoNodes	1	700000	[584396,24881385]
 	dblAverageHousehold	1	2.4	[3.3]
-	strHouseholdDensityFile	0	data/leicestershire_2020_30_sec.asc
+	strHouseholdDensityFile	0	data/bristol_2020_30_sec.asc
 '''
 
 
@@ -71,7 +71,7 @@ def WriteStrataParmas(
 def WriteNetworkParams(
     networkPath='./params/build_network_params.in',
     dblPropColleguesInNetwork=0.1,
-    strWorkplaceDensityFile='data/popDensityMaps/leicestershire_2020_fcb.asc',
+    strWorkplaceDensityFile='./data/bristol.asc',
     dblDistanceAllWorkplacesHistDx=10,
     dblDistanceAllWorkplacesGridDx=5,
     intMCMCMaxSamplesInMillions=512,
@@ -79,9 +79,9 @@ def WriteNetworkParams(
     dblMCMCGridSize=1,
     dblWeightMCMCUpdateLocal=0.9,
     Commute_Power_One_GZ=2.29,
-    Commute_Change_Point_GZ=3.47,
+    Commute_Change_Point_GZ=1,
     Commute_Power_One_HK=2.29,
-    Commute_Change_Point_HK=3.47,
+    Commute_Change_Point_HK=1,
     Constant_Generate_Spatial_Neighbour=0,
     Decay_Generate_Spatial_Neighbour=0.75,
     Prob_Generate_Spatial_Neighbour=0,
@@ -118,7 +118,7 @@ def WriteNetworkParams(
 '''
 [Workplace setup]			
 	dblPropColleguesInNetwork	1	0.1
-	strWorkplaceDensityFile	0	data/leicestershire_2020_30_sec.asc
+	strWorkplaceDensityFile	0	data/bristol_2020_30_sec.asc
 	dblDistanceAllWorkplacesHistDx	1	10
 	dblDistanceAllWorkplacesGridDx	1	5
 	intMCMCMaxSamplesInMillions	1	512
@@ -210,3 +210,5 @@ for a in sys.argv[1:]:
 WriteGridParams(**gridArgs)
 WriteStrataParmas(**strataArgs)
 WriteNetworkParams(**networkArgs)
+
+print("\nDone!")
