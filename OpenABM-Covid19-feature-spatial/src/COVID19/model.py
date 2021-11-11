@@ -254,7 +254,7 @@ class Parameters(object):
             self,
             input_param_file: str = None,
             param_line_number: int = 1,
-            output_file_dir: str = "./",
+            output_file_dir: str = "./output_files/",
             input_households: Union[str, pd.DataFrame] = None,
             hospital_input_param_file: str = None,
             hospital_param_line_number: int = 1,
