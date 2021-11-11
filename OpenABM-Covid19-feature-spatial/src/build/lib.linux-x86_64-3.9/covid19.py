@@ -240,6 +240,9 @@ def create_event(arg1):
 def add_individual_to_event_list(arg1, arg2, arg3, arg4, arg5):
     return _covid19.add_individual_to_event_list(arg1, arg2, arg3, arg4, arg5)
 
+def add_individual_to_event_list_by_idx(arg1, arg2, arg3, arg4, arg5):
+    return _covid19.add_individual_to_event_list_by_idx(arg1, arg2, arg3, arg4, arg5)
+
 def set_up_event_list(arg1, arg2, arg3):
     return _covid19.set_up_event_list(arg1, arg2, arg3)
 
@@ -755,8 +758,11 @@ def get_app_users(arg1, arg2):
 def get_app_user_by_index(arg1, arg2):
     return _covid19.get_app_user_by_index(arg1, arg2)
 
-def get_individuals(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10):
-    return _covid19.get_individuals(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
+def get_individuals(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11):
+    return _covid19.get_individuals(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11)
+
+def get_infection_event_by_idx(arg1, arg2, arg3, arg4, arg5):
+    return _covid19.get_infection_event_by_idx(arg1, arg2, arg3, arg4, arg5)
 
 def update_work_intervention_state(pmodel, value):
     return _covid19.update_work_intervention_state(pmodel, value)
@@ -1132,6 +1138,12 @@ def set_house_no(arg1, arg2):
 def set_coordinates(arg1, arg2, arg3):
     return _covid19.set_coordinates(arg1, arg2, arg3)
 
+def distance_individuals(arg1, arg2):
+    return _covid19.distance_individuals(arg1, arg2)
+
+def distance_individuals_by_idx(arg1, arg2, arg3):
+    return _covid19.distance_individuals_by_idx(arg1, arg2, arg3)
+
 def set_quarantine_status(arg1, arg2, arg3, arg4, arg5):
     return _covid19.set_quarantine_status(arg1, arg2, arg3, arg4, arg5)
 
@@ -1286,6 +1298,9 @@ def intervention_trace_token_release(arg1, arg2):
 def intervention_quarantine_until(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8):
     return _covid19.intervention_quarantine_until(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
 
+def intervention_quarantine_until_by_idx(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8):
+    return _covid19.intervention_quarantine_until_by_idx(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
+
 def intervention_quarantine_release(arg1, arg2):
     return _covid19.intervention_quarantine_release(arg1, arg2)
 
@@ -1400,6 +1415,9 @@ def sum_square_diff_array(arg1, arg2, arg3):
 def n_unique_elements(arg1, arg2):
     return _covid19.n_unique_elements(arg1, arg2)
 
+def max_element(arg1, arg2):
+    return _covid19.max_element(arg1, arg2)
+
 def setup_gsl_rng(arg1):
     return _covid19.setup_gsl_rng(arg1)
 
@@ -1441,6 +1459,12 @@ def transmit_virus_by_type(arg1, arg2):
 
 def new_infection(arg1, arg2, arg3, arg4, arg5):
     return _covid19.new_infection(arg1, arg2, arg3, arg4, arg5)
+
+def new_infection_by_idx(arg1, arg2, arg3, arg4, arg5):
+    return _covid19.new_infection_by_idx(arg1, arg2, arg3, arg4, arg5)
+
+def new_infection_by_idx_check_safe(arg1, arg2, arg3, arg4, arg5):
+    return _covid19.new_infection_by_idx_check_safe(arg1, arg2, arg3, arg4, arg5)
 
 def seed_infect_by_idx(arg1, arg2, arg3, arg4):
     return _covid19.seed_infect_by_idx(arg1, arg2, arg3, arg4)

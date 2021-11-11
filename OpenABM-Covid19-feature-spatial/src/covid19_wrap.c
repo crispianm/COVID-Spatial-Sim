@@ -10086,6 +10086,58 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_add_individual_to_event_list_by_idx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  model *arg1 = (model *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 ;
+  void *arg5 = (void *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int res5 ;
+  PyObject *swig_obj[5] ;
+  event *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "add_individual_to_event_list_by_idx", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "add_individual_to_event_list_by_idx" "', argument " "1"" of type '" "model *""'"); 
+  }
+  arg1 = (model *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "add_individual_to_event_list_by_idx" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "add_individual_to_event_list_by_idx" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = (int)(val3);
+  ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "add_individual_to_event_list_by_idx" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  res5 = SWIG_ConvertPtr(swig_obj[4],SWIG_as_voidptrptr(&arg5), 0, 0);
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "add_individual_to_event_list_by_idx" "', argument " "5"" of type '" "void *""'"); 
+  }
+  result = (event *)add_individual_to_event_list_by_idx(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_event, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_set_up_event_list(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   model *arg1 = (model *) 0 ;
@@ -21629,6 +21681,7 @@ SWIGINTERN PyObject *_wrap_get_individuals(PyObject *SWIGUNUSEDPARM(self), PyObj
   short *arg8 = (short *) 0 ;
   float *arg9 = (float *) 0 ;
   float *arg10 = (float *) 0 ;
+  int *arg11 = (int *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -21649,10 +21702,12 @@ SWIGINTERN PyObject *_wrap_get_individuals(PyObject *SWIGUNUSEDPARM(self), PyObj
   int res9 = 0 ;
   void *argp10 = 0 ;
   int res10 = 0 ;
-  PyObject *swig_obj[10] ;
+  void *argp11 = 0 ;
+  int res11 = 0 ;
+  PyObject *swig_obj[11] ;
   long result;
   
-  if (!SWIG_Python_UnpackTuple(args, "get_individuals", 10, 10, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "get_individuals", 11, 11, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "get_individuals" "', argument " "1"" of type '" "model *""'"); 
@@ -21703,8 +21758,67 @@ SWIGINTERN PyObject *_wrap_get_individuals(PyObject *SWIGUNUSEDPARM(self), PyObj
     SWIG_exception_fail(SWIG_ArgError(res10), "in method '" "get_individuals" "', argument " "10"" of type '" "float *""'"); 
   }
   arg10 = (float *)(argp10);
-  result = (long)get_individuals(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+  res11 = SWIG_ConvertPtr(swig_obj[10], &argp11,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res11)) {
+    SWIG_exception_fail(SWIG_ArgError(res11), "in method '" "get_individuals" "', argument " "11"" of type '" "int *""'"); 
+  }
+  arg11 = (int *)(argp11);
+  result = (long)get_individuals(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11);
   resultobj = SWIG_From_long((long)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_get_infection_event_by_idx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  model *arg1 = (model *) 0 ;
+  long *arg2 = (long *) 0 ;
+  long *arg3 = (long *) 0 ;
+  int *arg4 = (int *) 0 ;
+  long *arg5 = (long *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject *swig_obj[5] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "get_infection_event_by_idx", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "get_infection_event_by_idx" "', argument " "1"" of type '" "model *""'"); 
+  }
+  arg1 = (model *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_long, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "get_infection_event_by_idx" "', argument " "2"" of type '" "long *""'"); 
+  }
+  arg2 = (long *)(argp2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_long, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "get_infection_event_by_idx" "', argument " "3"" of type '" "long *""'"); 
+  }
+  arg3 = (long *)(argp3);
+  res4 = SWIG_ConvertPtr(swig_obj[3], &argp4,SWIGTYPE_p_int, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "get_infection_event_by_idx" "', argument " "4"" of type '" "int *""'"); 
+  }
+  arg4 = (int *)(argp4);
+  res5 = SWIG_ConvertPtr(swig_obj[4], &argp5,SWIGTYPE_p_long, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "get_infection_event_by_idx" "', argument " "5"" of type '" "long *""'"); 
+  }
+  arg5 = (long *)(argp5);
+  result = (int)get_infection_event_by_idx(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -26308,6 +26422,74 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_distance_individuals(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  individual *arg1 = (individual *) 0 ;
+  individual *arg2 = (individual *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  float result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "distance_individuals", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_individual, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "distance_individuals" "', argument " "1"" of type '" "individual *""'"); 
+  }
+  arg1 = (individual *)(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_individual, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "distance_individuals" "', argument " "2"" of type '" "individual *""'"); 
+  }
+  arg2 = (individual *)(argp2);
+  result = (float)distance_individuals(arg1,arg2);
+  resultobj = SWIG_From_float((float)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_distance_individuals_by_idx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  model *arg1 = (model *) 0 ;
+  long arg2 ;
+  long arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyObject *swig_obj[3] ;
+  float result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "distance_individuals_by_idx", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "distance_individuals_by_idx" "', argument " "1"" of type '" "model *""'"); 
+  }
+  arg1 = (model *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "distance_individuals_by_idx" "', argument " "2"" of type '" "long""'");
+  } 
+  arg2 = (long)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "distance_individuals_by_idx" "', argument " "3"" of type '" "long""'");
+  } 
+  arg3 = (long)(val3);
+  result = (float)distance_individuals_by_idx(arg1,arg2,arg3);
+  resultobj = SWIG_From_float((float)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_set_quarantine_status(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   individual *arg1 = (individual *) 0 ;
@@ -28677,6 +28859,84 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_intervention_quarantine_until_by_idx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  model *arg1 = (model *) 0 ;
+  long arg2 ;
+  long arg3 ;
+  int arg4 ;
+  int arg5 ;
+  trace_token *arg6 = (trace_token *) 0 ;
+  int arg7 ;
+  double arg8 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  void *argp6 = 0 ;
+  int res6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
+  double val8 ;
+  int ecode8 = 0 ;
+  PyObject *swig_obj[8] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "intervention_quarantine_until_by_idx", 8, 8, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "intervention_quarantine_until_by_idx" "', argument " "1"" of type '" "model *""'"); 
+  }
+  arg1 = (model *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "intervention_quarantine_until_by_idx" "', argument " "2"" of type '" "long""'");
+  } 
+  arg2 = (long)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "intervention_quarantine_until_by_idx" "', argument " "3"" of type '" "long""'");
+  } 
+  arg3 = (long)(val3);
+  ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "intervention_quarantine_until_by_idx" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_int(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "intervention_quarantine_until_by_idx" "', argument " "5"" of type '" "int""'");
+  } 
+  arg5 = (int)(val5);
+  res6 = SWIG_ConvertPtr(swig_obj[5], &argp6,SWIGTYPE_p_trace_token, 0 |  0 );
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "intervention_quarantine_until_by_idx" "', argument " "6"" of type '" "trace_token *""'"); 
+  }
+  arg6 = (trace_token *)(argp6);
+  ecode7 = SWIG_AsVal_int(swig_obj[6], &val7);
+  if (!SWIG_IsOK(ecode7)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "intervention_quarantine_until_by_idx" "', argument " "7"" of type '" "int""'");
+  } 
+  arg7 = (int)(val7);
+  ecode8 = SWIG_AsVal_double(swig_obj[7], &val8);
+  if (!SWIG_IsOK(ecode8)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "intervention_quarantine_until_by_idx" "', argument " "8"" of type '" "double""'");
+  } 
+  arg8 = (double)(val8);
+  result = (int)intervention_quarantine_until_by_idx(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_intervention_quarantine_release(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   model *arg1 = (model *) 0 ;
@@ -30059,6 +30319,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_max_element(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  short *arg1 = (short *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  short result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "max_element", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_short, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "max_element" "', argument " "1"" of type '" "short *""'"); 
+  }
+  arg1 = (short *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "max_element" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (short)max_element(arg1,arg2);
+  resultobj = SWIG_From_short((short)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_setup_gsl_rng(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
@@ -30434,6 +30724,113 @@ SWIGINTERN PyObject *_wrap_new_infection(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg5 = (strain *)(argp5);
   new_infection(arg1,arg2,arg3,arg4,arg5);
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_infection_by_idx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  model *arg1 = (model *) 0 ;
+  long arg2 ;
+  long arg3 ;
+  int arg4 ;
+  short arg5 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  short val5 ;
+  int ecode5 = 0 ;
+  PyObject *swig_obj[5] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_infection_by_idx", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_infection_by_idx" "', argument " "1"" of type '" "model *""'"); 
+  }
+  arg1 = (model *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_infection_by_idx" "', argument " "2"" of type '" "long""'");
+  } 
+  arg2 = (long)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_infection_by_idx" "', argument " "3"" of type '" "long""'");
+  } 
+  arg3 = (long)(val3);
+  ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_infection_by_idx" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_short(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_infection_by_idx" "', argument " "5"" of type '" "short""'");
+  } 
+  arg5 = (short)(val5);
+  new_infection_by_idx(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_infection_by_idx_check_safe(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  model *arg1 = (model *) 0 ;
+  long arg2 ;
+  long arg3 ;
+  int arg4 ;
+  short arg5 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  short val5 ;
+  int ecode5 = 0 ;
+  PyObject *swig_obj[5] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "new_infection_by_idx_check_safe", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_model, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_infection_by_idx_check_safe" "', argument " "1"" of type '" "model *""'"); 
+  }
+  arg1 = (model *)(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_infection_by_idx_check_safe" "', argument " "2"" of type '" "long""'");
+  } 
+  arg2 = (long)(val2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_infection_by_idx_check_safe" "', argument " "3"" of type '" "long""'");
+  } 
+  arg3 = (long)(val3);
+  ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_infection_by_idx_check_safe" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = (int)(val4);
+  ecode5 = SWIG_AsVal_short(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_infection_by_idx_check_safe" "', argument " "5"" of type '" "short""'");
+  } 
+  arg5 = (short)(val5);
+  result = (int)new_infection_by_idx_check_safe(arg1,arg2,arg3,arg4,arg5);
+  resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
   return NULL;
@@ -40833,6 +41230,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "flu_infections", _wrap_flu_infections, METH_O, NULL},
 	 { "create_event", _wrap_create_event, METH_O, NULL},
 	 { "add_individual_to_event_list", _wrap_add_individual_to_event_list, METH_VARARGS, NULL},
+	 { "add_individual_to_event_list_by_idx", _wrap_add_individual_to_event_list_by_idx, METH_VARARGS, NULL},
 	 { "set_up_event_list", _wrap_set_up_event_list, METH_VARARGS, NULL},
 	 { "destroy_event_list", _wrap_destroy_event_list, METH_VARARGS, NULL},
 	 { "remove_event_from_event_list", _wrap_remove_event_from_event_list, METH_VARARGS, NULL},
@@ -41251,6 +41649,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "get_app_users", _wrap_get_app_users, METH_VARARGS, NULL},
 	 { "get_app_user_by_index", _wrap_get_app_user_by_index, METH_VARARGS, NULL},
 	 { "get_individuals", _wrap_get_individuals, METH_VARARGS, NULL},
+	 { "get_infection_event_by_idx", _wrap_get_infection_event_by_idx, METH_VARARGS, NULL},
 	 { "update_work_intervention_state", _wrap_update_work_intervention_state, METH_VARARGS, NULL},
 	 { "update_household_intervention_state", _wrap_update_household_intervention_state, METH_VARARGS, NULL},
 	 { "check_params", _wrap_check_params, METH_O, NULL},
@@ -41411,6 +41810,8 @@ static PyMethodDef SwigMethods[] = {
 	 { "set_age_group", _wrap_set_age_group, METH_VARARGS, NULL},
 	 { "set_house_no", _wrap_set_house_no, METH_VARARGS, NULL},
 	 { "set_coordinates", _wrap_set_coordinates, METH_VARARGS, NULL},
+	 { "distance_individuals", _wrap_distance_individuals, METH_VARARGS, NULL},
+	 { "distance_individuals_by_idx", _wrap_distance_individuals_by_idx, METH_VARARGS, NULL},
 	 { "set_quarantine_status", _wrap_set_quarantine_status, METH_VARARGS, NULL},
 	 { "set_recovered", _wrap_set_recovered, METH_VARARGS, NULL},
 	 { "set_susceptible", _wrap_set_susceptible, METH_VARARGS, NULL},
@@ -41494,6 +41895,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "remove_traces_on_individual", _wrap_remove_traces_on_individual, METH_VARARGS, NULL},
 	 { "intervention_trace_token_release", _wrap_intervention_trace_token_release, METH_VARARGS, NULL},
 	 { "intervention_quarantine_until", _wrap_intervention_quarantine_until, METH_VARARGS, NULL},
+	 { "intervention_quarantine_until_by_idx", _wrap_intervention_quarantine_until_by_idx, METH_VARARGS, NULL},
 	 { "intervention_quarantine_release", _wrap_intervention_quarantine_release, METH_VARARGS, NULL},
 	 { "intervention_quarantine_household", _wrap_intervention_quarantine_household, METH_VARARGS, NULL},
 	 { "intervention_test_take", _wrap_intervention_test_take, METH_VARARGS, NULL},
@@ -41532,6 +41934,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "copy_normalize_array", _wrap_copy_normalize_array, METH_VARARGS, NULL},
 	 { "sum_square_diff_array", _wrap_sum_square_diff_array, METH_VARARGS, NULL},
 	 { "n_unique_elements", _wrap_n_unique_elements, METH_VARARGS, NULL},
+	 { "max_element", _wrap_max_element, METH_VARARGS, NULL},
 	 { "setup_gsl_rng", _wrap_setup_gsl_rng, METH_O, NULL},
 	 { "free_gsl_rng", _wrap_free_gsl_rng, METH_NOARGS, NULL},
 	 { "incomplete_gamma_p_params_n_set", _wrap_incomplete_gamma_p_params_n_set, METH_VARARGS, NULL},
@@ -41547,6 +41950,8 @@ static PyMethodDef SwigMethods[] = {
 	 { "transmit_virus", _wrap_transmit_virus, METH_O, NULL},
 	 { "transmit_virus_by_type", _wrap_transmit_virus_by_type, METH_VARARGS, NULL},
 	 { "new_infection", _wrap_new_infection, METH_VARARGS, NULL},
+	 { "new_infection_by_idx", _wrap_new_infection_by_idx, METH_VARARGS, NULL},
+	 { "new_infection_by_idx_check_safe", _wrap_new_infection_by_idx_check_safe, METH_VARARGS, NULL},
 	 { "seed_infect_by_idx", _wrap_seed_infect_by_idx, METH_VARARGS, NULL},
 	 { "seed_infect_n_people", _wrap_seed_infect_n_people, METH_VARARGS, NULL},
 	 { "transition_to_symptomatic", _wrap_transition_to_symptomatic, METH_VARARGS, NULL},
