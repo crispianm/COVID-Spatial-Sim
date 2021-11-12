@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load original ons data
-ogPath = '../../data/ons-hh-ages.csv'
+ogPath = '../../data/ons-hh-ages_nocrisis.csv'
 d = pd.read_csv(ogPath)
 
 print(sum(d['hh-size']*d['freq']))
@@ -45,5 +45,5 @@ print(d['freq'][i_tmp])
 print(sum(d['hh-size']*d['freq']))
 
 # output to new localised area
-outPath = './data/ons-hh-ages_modified.csv'
+outPath = './data/ons-hh-ages_modified_nocrisis.csv'
 d.to_csv(outPath,index=False)

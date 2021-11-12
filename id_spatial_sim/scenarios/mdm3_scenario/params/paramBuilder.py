@@ -11,7 +11,7 @@ def WriteGridParams(
     blNetworkDumpFile=True,
     intBlockSizeInUnitsOfPointers=4096,
     dblAverageWorkplaceSize=150,
-    strHouseholdAgeDistributionFile='./data/ons-hh-ages_modified.csv',
+    strHouseholdAgeDistributionFile='./data/ons-hh-ages_modified_nocrisis.csv',
     intNoNodes=620000,
     dblAverageHousehold=2.4,
     strHouseholdDensityFile='./data/bristol.asc'
