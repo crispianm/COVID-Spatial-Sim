@@ -1,0 +1,67 @@
+# Set main options (can be at command line)
+ifndef $(SYSTEM) 
+SYSTEM=mac1
+endif
+
+# Possible modes are debug and run
+ifndef $(MODE)
+MODE=debug
+endif
+
+# Set main compile option
+CXX = g++
+
+# Set local paths
+SRCLIB = .
+
+# Set header paths and library paths for gsl if required
+# Note windows options are already on the default compiler paths
+# Linux likely to be the same as windows
+ifeq ($(SYSTEM),mac)
+GSLHEADER = /opt/local/include
+GSLLIB = /opt/local/lib
+else ifeq ($(SYSTEM),windows)
+GSLHEADER = /usr/include
+GSLLIB = /lib
+else ifeq ($(SYSTEM),mac1)
+GSLHEADER = /usr/local/include
+GSLLIB = /usr/local/lib
+endif
+
+INCLUDEDIRS = -I$(NRCHEADDIR) -I$(SRCLIBHEADER) -I$(GSLHEADER)
+LDFLAGS =   -L$(GSLLIB) -lgsl -lgslcblas
+
+# System variable to tell the compiler where to look for .cpps and .hs
+VPATH = $(SRCLIB)
+
+# Set standatd compile variables
+ifeq ($(MODE),run)
+CXXFLAGS = -O3 $(INCLUDEDIRS)
+else ifeq ($(MODE),debug)
+ 
+# Possible flags -Wall for all warnings
+CXXFLAGS = -W -ggdb $(INCLUDEDIRS)  
+endif
+
+# Define the object files
+OBJFILES = BytePackedInt.o CachedLookups.o SR_DensityField.o SR_EventMatrix.o \
+			SR_GatherRunInformation.o SR_GridHex.o SR_InitialConditions.o SR_Kernels.o \
+			SR_Label.o SR_PagesForThings.o SR_Parameter.o SR_Stats.o SR_StripComments.o \
+			SR_Utility.o SR_Workplaces.o ebola_common.o
+
+all : build_grid.exe build_network.exe build_strata.exe ebola_run.exe
+
+ebola_run.exe : $(OBJFILES) ebola_run.o  
+	$(CXX) $(OBJFILES) ebola_run.o -o $@ $(LDFLAGS) 
+
+build_grid.exe : $(OBJFILES) build_grid.o  
+	$(CXX) $(OBJFILES) build_grid.o -o $@ $(LDFLAGS)
+	
+build_network.exe : $(OBJFILES) build_network.o  
+	$(CXX) $(OBJFILES) build_network.o -o $@ $(LDFLAGS)
+
+build_strata.exe : $(OBJFILES) build_strata.o  
+	$(CXX) $(OBJFILES) build_strata.o -o $@ $(LDFLAGS)
+
+clean:
+	rm *.o *.exe

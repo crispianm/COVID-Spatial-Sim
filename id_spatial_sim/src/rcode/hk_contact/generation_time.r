@@ -1,0 +1,71 @@
+rm(list=ls())        
+
+#ct_data1a <- read.csv(file="C:/Users/kkokwok/Dropbox/id_spatial_sim/scenarios/hk_contacts/output/ncov_1a_pset_0_Events.out", header=TRUE, sep="")
+ct_data1a <- read.csv(file="../id_spatial_sim/scenarios/hk_contacts/output/ncov_1a_pset_0_Events.out", header=TRUE, sep="")
+
+# Generation time 
+n<-10
+l <-n-1
+
+temp <-matrix(0L,nrow=n, ncol=5000)
+
+for(k in 0:l) {
+
+	test_data <- ct_data1a[((ct_data1a$Event==0)&(ct_data1a$Run==k)),]
+    	county <- 0 
+
+
+	for(i in 1:dim(test_data)[1]) {
+		     countx <-0
+
+	    	for(j in 1:dim(test_data)[1]) {
+
+		   	if (test_data$infector[i]==test_data$Index[j]) {
+      		        countx<-countx+1                
+      
+      		        if (countx==1)
+        	  	county<- county+1  
+         
+         		if (countx>0)
+                	temp[k+1,county]= temp[k+1,county] + test_data$Day[i]-test_data$Day[j]
+	        }
+
+	    }
+
+ 	print(k+1)
+ 	}
+     }
+c <-rep(0,n)
+for(i in 0:n) 
+   c[i] <- mean(temp[i,][temp[i,]!=0])
+
+
+temp1 <-matrix(0L,nrow=n, ncol=dim(test_data)[1])
+
+for(k in 0:l) {
+
+	test_data <- ct_data1a[(ct_data1a$Run==k),]
+    	county <- 0 
+     
+	for(i in 1:dim(test_data)[1]) {
+		 
+	    	for(j in 1:dim(test_data)[1]) {
+
+		   	if ((test_data$Index[i]==test_data$Index[j]) && (test_data$Event[i]==4) && (test_data$Event[j]==5)){
+      			  	county<- county+1  
+         
+                	temp1[k+1,county]= temp1[k+1,county] + test_data$Day[j]-test_data$Day[i]
+	        }
+
+	    }
+ 	print(k+1)
+ 	}
+     }
+d <-rep(0,l)
+for(i in 0:l) 
+   d[i] <- mean(temp1[i,][temp1[i,]!=0])
+
+
+
+
+	
