@@ -6,7 +6,7 @@
 	 blNetworkDumpFile	0	TRUE
 	 intBlockSizeInUnitsOfPointers	1	4096
 	 dblAverageWorkplaceSize	1	150
-	 strHouseholdAgeDistributionFile	0	./data/ons-hh-ages_modified.csv	[0]	
+	 strHouseholdAgeDistributionFile	0	./data/ons-hh-ages_modified_nocrisis.csv	[0]	
 
 [Household setup]
 	 intNoNodes	1	620000	[584396,24881385]	

@@ -4,6 +4,8 @@ import pandas as pd
 ogPath = '../../data/ons-hh-ages_nocrisis.csv'
 d = pd.read_csv(ogPath)
 
+print(d)
+
 print(sum(d['hh-size']*d['freq']))
 
 # redist
