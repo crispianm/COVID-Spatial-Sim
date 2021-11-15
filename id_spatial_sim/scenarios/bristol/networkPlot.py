@@ -12,11 +12,11 @@ import matplotlib
 # Make matplotlib use a 'non-interactive' background
 matplotlib.use('Agg') # was getting a "Could not connect to any X display" error
 
-# Load Hadean font
-from matplotlib import font_manager
-font_manager._rebuild()
-font = font_manager.get_font('/mnt/c/Users/dan/AppData/Local/Microsoft/Windows/Fonts/proximaNova.ttf')
-prop = font_manager.FontProperties(fname='/mnt/c/Users/dan/AppData/Local/Microsoft/Windows/Fonts/proximaNova.ttf')
+# # Load Hadean font
+# from matplotlib import font_manager
+# font_manager._rebuild()
+# font = font_manager.get_font('/mnt/c/Users/dan/AppData/Local/Microsoft/Windows/Fonts/proximaNova.ttf')
+# prop = font_manager.FontProperties(fname='/mnt/c/Users/dan/AppData/Local/Microsoft/Windows/Fonts/proximaNova.ttf')
 
 # Hadean colour scheme
 hadeanOrange = '#FF9448'

@@ -112,8 +112,8 @@ SR::GridHex::GridHex(SR::ParameterSet& p, SR::Hexagon tmphex, SR::DensityField& 
 	struct hh_ages {
 		int au20=0,a20_29=0,a30_44=0,a45_59=0,a60_69=0,a70_plus=0, freq=0;
 	};
-	std::vector<std::vector<hh_ages>> ages(10); // sorted by frequency
-	std::vector<int> ages_totals(10,0); 
+	std::vector<std::vector<hh_ages>> ages(5); // sorted by frequency
+	std::vector<int> ages_totals(5,0); 
 	std::vector<int> selected_ages;
 	if (strHouseholdAgeDistributionFile=="0"){
 		// uniform distribution of ages from 0-80
@@ -135,17 +135,17 @@ SR::GridHex::GridHex(SR::ParameterSet& p, SR::Hexagon tmphex, SR::DensityField& 
 		while(!ifs.eof()){
 			int hh_size;
 			ifs >> hh_size;
-			if (hh_size>10) SR::srerror("This Hardcoded household size limit of 10.");
+			if (hh_size>5) SR::srerror("This Hardcoded household size limit of 10.");
 			ages[hh_size-1].push_back({});
 			auto& e = ages[hh_size-1].back();
 			// ifs >>c>> e.a0_19 >>c>> e.a20_64 >>c>> e.a65_plus >>c>> e.freq;
-			ifs >>c>> e.au20 >>c>> e.a20_29 >>c >> e.a30_44 >>c >> e.a45_59 >>c >> e.a60_69 >>c >> e.a70_plus >>c>> e.freq;
+			ifs >>c>> e.au20 >>c>> e.a20_29 >>c>> e.a30_44 >>c>> e.a45_59 >>c>> e.a60_69 >>c>> e.a70_plus >>c>> e.freq;
 			ages_totals[hh_size-1]+=e.freq;
 		};
 		ifs.close();
 
 		ageSelector = [&](std::vector<int>& ages_out, int num_members) {
-			if (num_members>10) SR::srerror("Hardcoded household size limit of 10.");
+			if (num_members>5) SR::srerror("Hardcoded household size limit of 10.");
 			ages_out.clear();
 			auto sum=0u;
 			auto ages_total = ages_totals[num_members-1];
@@ -240,7 +240,7 @@ SR::GridHex::GridHex(SR::ParameterSet& p, SR::Hexagon tmphex, SR::DensityField& 
 //			intHouseholdCounter = 1 + static_cast<int>(NR::poidev(dblPoissonAve,p.intSeed));
 			intHouseholdCounter = 1 + static_cast<int>(gsl_ran_poisson(glob_rng,dblPoissonAve));
 			//Households have at most size 10
-			while(intHouseholdCounter > 10) {
+			while(intHouseholdCounter > 5) {
 				cerr << "RESELECT";
 				intHouseholdCounter = 1 + static_cast<int>(gsl_ran_poisson(glob_rng,dblPoissonAve));
 			}
