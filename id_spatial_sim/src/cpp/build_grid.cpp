@@ -70,7 +70,9 @@ int main(int argc, char* argv[]) {
 	SR::GridHex * ukGridHexGenerate;
 
 	//Make Grid
+	cout << "before!!!!!" << endl;
 	ukGridHexGenerate = new SR::GridHex(ukPars,tmphex, PopulationDensityField, strHouseholdAgeDistributionFile);
+	cout << "after!!!!!" << endl;
 
 	//Save Grid
 	cerr << "Writing GridHex...\n";

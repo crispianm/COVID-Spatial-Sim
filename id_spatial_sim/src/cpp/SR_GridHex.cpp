@@ -110,7 +110,7 @@ SR::GridHex::GridHex(SR::ParameterSet& p, SR::Hexagon tmphex, SR::DensityField& 
 
 	std::function<void(std::vector<int>&,int)> ageSelector;
 	struct hh_ages {
-		int a0_19=0, a20_64=0, a65_plus=0, freq=0;
+		int au20=0,a20_29=0,a30_44=0,a45_59=0,a60_69=0,a70_plus=0, freq=0;
 	};
 	std::vector<std::vector<hh_ages>> ages(10); // sorted by frequency
 	std::vector<int> ages_totals(10,0); 
@@ -138,7 +138,8 @@ SR::GridHex::GridHex(SR::ParameterSet& p, SR::Hexagon tmphex, SR::DensityField& 
 			if (hh_size>10) SR::srerror("This Hardcoded household size limit of 10.");
 			ages[hh_size-1].push_back({});
 			auto& e = ages[hh_size-1].back();
-			ifs >>c>> e.a0_19 >>c>> e.a20_64 >>c>> e.a65_plus >>c>> e.freq;
+			// ifs >>c>> e.a0_19 >>c>> e.a20_64 >>c>> e.a65_plus >>c>> e.freq;
+			ifs >>c>> e.au20 >>c>> e.a20_29 >>c >> e.a30_44 >>c >> e.a45_59 >>c >> e.a60_69 >>c >> e.a70_plus >>c>> e.freq;
 			ages_totals[hh_size-1]+=e.freq;
 		};
 		ifs.close();
@@ -155,10 +156,13 @@ SR::GridHex::GridHex(SR::ParameterSet& p, SR::Hexagon tmphex, SR::DensityField& 
 				sum+=ages_n[j].freq;
 				j++;
 			}
-			std::array<std::array<int,3>,3> age_buckets = {{
-				{0,19,ages_n[j-1].a0_19},
-				{20,64,ages_n[j-1].a20_64},
-				{65,85,ages_n[j-1].a65_plus},
+			std::array<std::array<int,3>,6> age_buckets = {{
+				{ 0,19,ages_n[j-1].au20},
+				{20,29,ages_n[j-1].a20_29},
+				{30,44,ages_n[j-1].a30_44},
+				{45,59,ages_n[j-1].a45_59},
+				{60,69,ages_n[j-1].a60_69},
+				{70,85,ages_n[j-1].a70_plus},
 			}};
 			for ( auto a : age_buckets ){
 				for (int i=0; i<a[2]; ++i){
