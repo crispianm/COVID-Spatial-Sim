@@ -440,16 +440,16 @@ def plot_timeseries_curves(df_timeseries, xlimits = None, lw = 3, timevar = "tim
             "daily_incidence": {"label": "Incident cases", "c": "red", "linestyle": "solid"}
         },
         {
-            "n_death": {"label": "Deaths", "c": "black", "linestyle": "dashed"},
+            "n_death": {"label": "Deaths", "c": "#0072B2", "linestyle": "solid"},
             "n_hospital": {"label": "Number hospitalised", "c": "#56B4E9", "linestyle": "solid"},
-            "n_critical": {"label": "ICU cases", "c": "#0072B2", "linestyle": "solid"}
+            "n_critical": {"label": "ICU cases", "c": "black", "linestyle": "dashed"}
         },
         {
             "n_tests": {"label": "Tests used", "c": "black", "linestyle": "solid"}
         }]
     
     fig, ax = plt.subplots(nrows = len(data))
-    
+
     for i, panel in enumerate(data):
         
         maximums = []
