@@ -440,9 +440,9 @@ def plot_timeseries_curves(df_timeseries, xlimits = None, lw = 3, timevar = "tim
             "daily_incidence": {"label": "Incident cases", "c": "red", "linestyle": "solid"}
         },
         {
-            "n_death": {"label": "Deaths", "c": "#0072B2", "linestyle": "solid"},
-            "n_hospital": {"label": "Number hospitalised", "c": "#56B4E9", "linestyle": "solid"},
-            "n_critical": {"label": "ICU cases", "c": "black", "linestyle": "dashed"}
+            "n_death": {"label": "Deaths", "c": "#0072B2", "linestyle": "solid"}#,
+            # "n_hospital": {"label": "Number hospitalised", "c": "#56B4E9", "linestyle": "solid"},
+            # "n_critical": {"label": "ICU cases", "c": "black", "linestyle": "dashed"}
         },
         {
             "n_tests": {"label": "Tests used", "c": "black", "linestyle": "solid"}
@@ -454,14 +454,22 @@ def plot_timeseries_curves(df_timeseries, xlimits = None, lw = 3, timevar = "tim
         
         maximums = []
         for var, props in panel.items():
-            
-            ax[i].plot(df[timevar], df[var], 
-                c = props["c"], 
-                linestyle = props["linestyle"],
-                linewidth = lw, 
-                label = props["label"]
-                )
-            maximums.append(df[var].max())
+            if i == 2:
+                ax[i].plot(df[timevar], df[var]/5, 
+                    c = props["c"], 
+                    linestyle = props["linestyle"],
+                    linewidth = lw, 
+                    label = props["label"]
+                    )
+                maximums.append(df[var].max())
+            else:
+                ax[i].plot(df[timevar], df[var], 
+                    c = props["c"], 
+                    linestyle = props["linestyle"],
+                    linewidth = lw, 
+                    label = props["label"]
+                    )
+                maximums.append(df[var].max())
             
         ax[i].fill_between(df[timevar], 0, np.max(maximums), 
             where = (df["lockdown"] == 1), alpha = 0.5)
@@ -477,7 +485,7 @@ def plot_timeseries_curves(df_timeseries, xlimits = None, lw = 3, timevar = "tim
     
         for tick in ax[i].yaxis.get_major_ticks():
             tick.label.set_fontsize(12)
-        
+    
         if i == 3:
             ax[i].set_xlabel("Day since infection seeded", size = 18)
         else:
