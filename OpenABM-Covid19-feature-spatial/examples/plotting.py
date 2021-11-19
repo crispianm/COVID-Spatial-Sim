@@ -454,22 +454,14 @@ def plot_timeseries_curves(df_timeseries, xlimits = None, lw = 3, timevar = "tim
         
         maximums = []
         for var, props in panel.items():
-            if i == 2:
-                ax[i].plot(df[timevar], df[var]/5, 
-                    c = props["c"], 
-                    linestyle = props["linestyle"],
-                    linewidth = lw, 
-                    label = props["label"]
-                    )
-                maximums.append(df[var].max())
-            else:
-                ax[i].plot(df[timevar], df[var], 
-                    c = props["c"], 
-                    linestyle = props["linestyle"],
-                    linewidth = lw, 
-                    label = props["label"]
-                    )
-                maximums.append(df[var].max())
+            
+            ax[i].plot(df[timevar], df[var], 
+                c = props["c"], 
+                linestyle = props["linestyle"],
+                linewidth = lw, 
+                label = props["label"]
+                )
+            maximums.append(df[var].max())
             
         ax[i].fill_between(df[timevar], 0, np.max(maximums), 
             where = (df["lockdown"] == 1), alpha = 0.5)
